@@ -1,0 +1,12 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  tasks:
+  - name: To create a file
+    copy:
+     src: /home/ansadmin/index.html
+     dest: /home/ansadmin
+     owner: ansadmin
+     group: ansadmin
+     mode: 0644

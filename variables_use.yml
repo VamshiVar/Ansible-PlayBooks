@@ -1,0 +1,10 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  vars:
+   user_1: Daniel
+  tasks:
+  - name: create user {{user_1}}
+    user:
+     name: "{{user_1}}"

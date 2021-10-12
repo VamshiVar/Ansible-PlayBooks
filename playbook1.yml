@@ -1,0 +1,7 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  tasks:
+  - name: creating user modi
+    user: name=Modi

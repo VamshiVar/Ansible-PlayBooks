@@ -1,0 +1,34 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  tasks:
+  - name: To Install httpd package
+    yum:
+     name: httpd
+     state: installed
+    when: ansible_os_family == "RedHat"
+
+  - name: Start service httpd, if not started
+    service:
+     name: httpdi
+     state: started
+    when: ansible_os_family == "RedHat"
+    ignore_errors: yes
+
+  - name: To Install apache2 package for Ubuntu flavour
+    apt:
+     name: apache2
+     state: present
+    when: ansible_os_family == "Debian"
+
+  - name: Starting apache2
+    service:
+     name: apache2
+     state: started
+    when: ansible_os_family == "Debian"
+
+  - name: copy index.html to make nodes as webserver
+    copy:
+     src: /home/ansadmin/index.html
+     dest: /var/www/html

@@ -1,0 +1,7 @@
+---
+- name: This is playbook for Role concept
+  hosts: all
+  become: yes
+
+  roles:
+  - setup-role

@@ -1,0 +1,20 @@
+---
+# tasks file for setup-role
+- name: To Install {{pkg_httpd}} package
+  yum:
+    name: "{{pkg_httpd}}"
+    state: installed
+  when: ansible_os_family == "RedHat"
+  notify: Start service {{pkg_httpd}}, if not started
+
+- name: To Install {{pkg_apache2}} package for Ubuntu flavour
+  apt:
+    name: "{{pkg_apache2}}"
+    state: present
+  when: ansible_os_family == "Debian"
+  notify: Starting {{pkg_apache2}}
+
+- name: copy index.html to make nodes as webserver
+  copy:
+    src: /home/ansadmin/index.html
+    dest: /var/www/html

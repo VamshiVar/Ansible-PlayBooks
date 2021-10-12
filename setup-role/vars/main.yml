@@ -1,0 +1,4 @@
+---
+# vars file for setup-role
+pkg_httpd: httpd
+pkg_apache: apache2

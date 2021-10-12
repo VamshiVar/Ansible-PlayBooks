@@ -1,0 +1,9 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  tasks:
+  - name: To Install multiple package
+    yum:
+     name: ['git', 'mysql', 'docker', 'wget', 'which']
+     state: installed

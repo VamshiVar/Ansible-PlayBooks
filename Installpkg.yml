@@ -1,0 +1,9 @@
+---
+- name: This is a kind of learning playbook concept.
+  hosts: all
+  become: yes
+  tasks:
+  - name: To Install a package
+    yum:
+     name: tree
+     state: installed
